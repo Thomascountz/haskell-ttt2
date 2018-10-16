@@ -1,5 +1,6 @@
 module Board (
   Symbol (..),
+  Board,
   initBoard,
   size,
   result,
