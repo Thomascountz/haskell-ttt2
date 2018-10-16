@@ -24,7 +24,7 @@ result (head:tail) index symbol
   | otherwise = head:result tail (index - 1) symbol
 
 tie :: Board -> Bool
-tie = notElem Empty
+tie board = not (win board) && notElem Empty board
 
 win :: Board -> Bool
 win board = any (winAt board) (winningIndices board)
