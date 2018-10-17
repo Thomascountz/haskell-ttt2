@@ -16,8 +16,8 @@ stringifyBoard board index str
 symbolCellStr :: Board -> Int -> String
 symbolCellStr board index = case board !! index of
   Empty -> buffer index ++ " | "
-  X -> "XX" ++ " | "
-  O -> "OO" ++ " | "
+  X -> "XX | "
+  O -> "OO | "
 
 
 buffer :: Int -> String
