@@ -1,6 +1,7 @@
-module Console 
-  (boardStr) 
-where
+module Console (
+   boardStr,
+   prompt
+   ) where
 import Board
 
 boardStr :: Board -> String
@@ -27,3 +28,6 @@ buffer int
   
 gutter :: Board -> String
 gutter board = "\n" ++ replicate ((size board * 5) + 1) '-' ++ "\n"
+
+prompt :: Board -> String
+prompt board = "Please enter a coordinate [0-" ++ show (length board - 1) ++ "]"

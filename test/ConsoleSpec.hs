@@ -4,7 +4,7 @@ import Board
 import Console
 
 spec :: Spec
-spec = 
+spec = do
   describe "boardStr" $ do
     context "when the board IS empty" $
       it "returns a string representation of the board" $
@@ -27,3 +27,8 @@ spec =
 \----------------\n\
 \| OO | 07 | XX | \n\
 \----------------\n"
+
+  describe "prompt" $
+    it "returns a string to prompt the user of the input range for a board" $ 
+      prompt [Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] `shouldBe` "Please enter a coordinate [0-8]" 
+
