@@ -3,11 +3,14 @@ module Console
 where
 import Board
 
-boardStr :: Board -> Int -> String -> String
-boardStr board index str
+boardStr :: Board -> String
+boardStr board = stringifyBoard board 0 ""
+
+stringifyBoard :: Board -> Int -> String -> String
+stringifyBoard board index str
   | index == length board = str ++ gutter board
-  | index `mod` size board == 0 = boardStr board (index + 1) (str ++ gutter board ++ "| " ++ symbolCellStr board index)
-  | otherwise = boardStr board (index + 1) (str ++ symbolCellStr board index)
+  | index `mod` size board == 0 = stringifyBoard board (index + 1) (str ++ gutter board ++ "| " ++ symbolCellStr board index)
+  | otherwise = stringifyBoard board (index + 1) (str ++ symbolCellStr board index)
   
 
 symbolCellStr :: Board -> Int -> String

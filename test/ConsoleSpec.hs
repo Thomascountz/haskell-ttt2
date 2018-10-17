@@ -8,7 +8,7 @@ spec =
   describe "boardStr" $ do
     context "when the board IS empty" $
       it "returns a string representation of the board" $
-        boardStr [Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] 0 "" `shouldBe` "\n\
+        boardStr [Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] `shouldBe` "\n\
 \----------------\n\
 \| 00 | 01 | 02 | \n\ 
 \----------------\n\
@@ -19,7 +19,7 @@ spec =
 
     context "when the board IS NOT empty" $
       it "returns a string representation of the board" $
-        boardStr [X, Empty, O, Empty, X, Empty, O, Empty, X] 0 "" `shouldBe` "\n\
+        boardStr [X, Empty, O, Empty, X, Empty, O, Empty, X] `shouldBe` "\n\
 \----------------\n\
 \| XX | 01 | OO | \n\ 
 \----------------\n\
