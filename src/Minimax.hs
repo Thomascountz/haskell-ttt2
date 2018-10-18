@@ -16,9 +16,7 @@ maxPlay board = if terminal board
                 else maximum (map (\move -> minPlay (result board move O)) (availableSpaces board))
 
 player :: Board -> Symbol
-player board = if odd (length board)
-               then if odd (length (filter (==Empty) board)) then X else O
-               else if odd (length (filter (==Empty) board)) then O else X
+player board = if odd (length board) == odd (length (filter (==Empty) board)) then X else O
 
 availableSpaces :: Board -> [Int]
 availableSpaces = elemIndices Empty
