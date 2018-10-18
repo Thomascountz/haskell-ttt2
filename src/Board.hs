@@ -52,7 +52,7 @@ winningColIndices board = map (\start -> take (size board) [start, start + size 
 winningDiagIndices :: Board -> [[Int]]
 winningDiagIndices board = [
                       take (size board) [0, (size board + 1)..],
-                      take (size board) [size board - 1, ((size board - 1) ^ 2)..]
+                      take (size board) [size board - 1, ((size board - 1) * 2)..]
                      ]
 
 rowStarts :: Board -> [Int]
