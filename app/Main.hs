@@ -21,10 +21,10 @@ play board = do
       O -> do
           let position = minimax board
           print position
-          let board' = result board position (player board)
+          let board' = result board position O
           play board'
       X -> do
           input <- getLine
           let position = read input :: Int
-          let board' = result board position (player board)
+          let board' = result board position X
           play board'

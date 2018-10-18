@@ -6,13 +6,19 @@ import Minimax
 spec :: Spec 
 spec = do 
   describe "player" $ do
-    context "when the board is empty" $ 
+    context "when the board is empty" $ do
       it "returns X" $
         player [Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] `shouldBe` X
 
-    context "after X has been played" $ 
+      it "returns X" $
+        player [Empty, Empty, Empty, Empty] `shouldBe` X
+
+    context "after X has been played" $ do
       it "returns O" $
         player [X, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] `shouldBe` O
+
+      it "returns O" $
+        player [X, Empty, Empty, Empty] `shouldBe` O
 
   describe "availableSpaces" $ do
     context "when the board is empty" $
