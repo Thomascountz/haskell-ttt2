@@ -70,3 +70,11 @@ spec = do
   describe "spaceUnavailableMessage" $
     it "returns a string informing the user that a space is not available" $
       spaceUnavailableMessage 0 `shouldBe` "\nI'm sorry, it looks like 0 isn't available.\n" 
+
+  describe "toBlue" $
+    it "returns a string wrapped in ANSI code for outputting blue" $
+      toBlue "foo" `shouldBe` "\x1b[34mfoo\x1b[0m"
+
+  describe "toYellow" $
+    it "returns a string wrapped in ANSI code for outputting yellow" $
+      toYellow "foo" `shouldBe` "\x1b[33mfoo\x1b[0m"

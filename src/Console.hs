@@ -3,7 +3,9 @@ module Console (
    promptMessage,
    endOfGameMessage,
    invalidInputMessage,
-   spaceUnavailableMessage
+   spaceUnavailableMessage,
+   toBlue,
+   toYellow
    ) where
 import Board
 
@@ -25,6 +27,12 @@ invalidInputMessage string = "\nI'm sorry, I don't understand \"" ++ string ++ "
 spaceUnavailableMessage :: Int -> String
 spaceUnavailableMessage index = "\nI'm sorry, it looks like " ++ show index ++ " isn't available.\n"
 
+toBlue :: String -> String
+toBlue string = "\x1b[34m" ++ string ++ "\x1b[0m"
+
+toYellow :: String -> String
+toYellow string = "\x1b[33m" ++ string ++ "\x1b[0m"
+
 stringifyBoard :: Board -> Int -> String -> String
 stringifyBoard board index str
   | index == length board = str ++ gutter board
@@ -37,7 +45,6 @@ symbolCellStr board index = case board !! index of
   Empty -> buffer index ++ " | "
   X -> "XX | "
   O -> "OO | "
-
 
 buffer :: Int -> String
 buffer int 
