@@ -1,7 +1,9 @@
 module Console (
    boardStr,
    promptMessage,
-   endOfGameMessage
+   endOfGameMessage,
+   invalidInputMessage,
+   spaceUnavailableMessage
    ) where
 import Board
 
@@ -16,6 +18,12 @@ endOfGameMessage board
  | win board = "We have ourselves a winner!"
  | tie board = "It's a tie!"
  | otherwise =  "The game isn't over yet."
+
+invalidInputMessage :: String -> String
+invalidInputMessage string = "\nI'm sorry, I don't understand \"" ++ string ++ "\"\n"
+
+spaceUnavailableMessage :: Int -> String
+spaceUnavailableMessage index = "\nI'm sorry, it looks like " ++ show index ++ " isn't available.\n"
 
 stringifyBoard :: Board -> Int -> String -> String
 stringifyBoard board index str

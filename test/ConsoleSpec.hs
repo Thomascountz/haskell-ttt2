@@ -62,3 +62,11 @@ spec = do
     context "when the game has NOT ENDED" $
       it "returns a 'game not over' string" $
         endOfGameMessage [Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty] `shouldBe` "The game isn't over yet."
+
+  describe "invalidInputMessage" $
+    it "returns a string informing the user of bad input" $
+      invalidInputMessage "foo" `shouldBe` "\nI'm sorry, I don't understand \"foo\"\n"
+
+  describe "spaceUnavailableMessage" $
+    it "returns a string informing the user that a space is not available" $
+      spaceUnavailableMessage 0 `shouldBe` "\nI'm sorry, it looks like 0 isn't available.\n" 

@@ -68,3 +68,16 @@ spec = do
     context "when the board DOES contain a winner, along a diagonal" $
       it "returns true" $
         win [Empty, Empty, X, Empty, X, Empty, X, Empty, Empty] `shouldBe` True
+
+  describe "spaceIsAvailable" $ do
+    context "when the space IS Empty" $ 
+      it "returns True" $
+        spaceIsAvailable [Empty] 0 `shouldBe` True
+
+    context "when the space IS NOT Empty" $
+      it "returns False" $
+        spaceIsAvailable [X] 0 `shouldBe` False
+
+    context "when the index IS NOT within the board range" $
+      it "returns False" $
+        spaceIsAvailable [X] 1 `shouldBe` False

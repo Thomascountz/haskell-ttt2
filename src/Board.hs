@@ -5,7 +5,8 @@ module Board (
   size,
   result,
   tie,
-  win
+  win,
+  spaceIsAvailable
 ) where
 
 data Symbol = X | O | Empty deriving (Eq, Show)
@@ -28,6 +29,9 @@ tie board = not (win board) && notElem Empty board
 
 win :: Board -> Bool
 win board = any (winAt board) (winningIndices board)
+
+spaceIsAvailable :: Board -> Int -> Bool
+spaceIsAvailable board index = index < length board && board !! index == Empty
 
 winAt :: Board -> [Int] -> Bool
 winAt board indices = all (== X) (board `atIndices` indices) ||

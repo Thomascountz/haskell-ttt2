@@ -33,11 +33,11 @@ getPosition board = do
     input <- getLine
     let position = readMaybe input :: Maybe Int
     case position of
-      Just n -> if board !! n == Empty
+      Just n -> if spaceIsAvailable board n
                 then return n
                 else do
-                  putStrLn ("I'm sorry, it looks like " ++ show n ++ " is already taken.")
+                  putStrLn (spaceUnavailableMessage n)
                   getPosition board
       Nothing -> do
-        putStrLn ("I'm sorry, I don't understand " ++ input)
+        putStrLn (invalidInputMessage input)
         getPosition board
