@@ -1,11 +1,21 @@
 module Console (
    boardStr,
-   prompt
+   promptMessage,
+   endOfGameMessage
    ) where
 import Board
 
 boardStr :: Board -> String
 boardStr board = stringifyBoard board 0 ""
+
+promptMessage :: Board -> String
+promptMessage board = "Please enter a coordinate [0-" ++ show (length board - 1) ++ "]"
+
+endOfGameMessage :: Board -> String
+endOfGameMessage board 
+ | win board = "We have ourselves a winner!"
+ | tie board = "It's a tie!"
+ | otherwise =  "The game isn't over yet."
 
 stringifyBoard :: Board -> Int -> String -> String
 stringifyBoard board index str
@@ -28,6 +38,3 @@ buffer int
   
 gutter :: Board -> String
 gutter board = "\n" ++ replicate ((size board * 5) + 1) '-' ++ "\n"
-
-prompt :: Board -> String
-prompt board = "Please enter a coordinate [0-" ++ show (length board - 1) ++ "]"
