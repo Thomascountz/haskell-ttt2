@@ -19,7 +19,7 @@ play board = do
   else
     case player board of 
       O -> do
-          let position = fst $ maximumBy (\(_, a) (_, b) -> compare a b) (minimax' board)
+          let position = minimax' board
           print position
           let board' = result board position O
           play board'
