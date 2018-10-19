@@ -3,6 +3,7 @@ import Board
 import Minimax
 import Console
 import Text.Read
+import Data.List
 
 main :: IO ()
 main = do
@@ -18,7 +19,7 @@ play board = do
   else
     case player board of 
       O -> do
-          let position = minimax board
+          let position = fst $ maximumBy (\(_, a) (_, b) -> compare a b) (minimax' board)
           print position
           let board' = result board position O
           play board'
